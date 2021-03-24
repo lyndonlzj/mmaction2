@@ -138,8 +138,8 @@ def inference_recognizer(model,
     
     ##convert to dict with positional scores
     final_res = {}
+    score = 400
     for i in score_sorted:
-        score = 400
         final_res[i[0]] = score
         score -=1
         
