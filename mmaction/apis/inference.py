@@ -136,11 +136,15 @@ def inference_recognizer(model,
     score_tuples = tuple(zip(label, scores))
     score_sorted = sorted(score_tuples, key=itemgetter(1), reverse=True)
     
-    print('*' * 80)
-    print(score_sorted)
-    print('*' * 80)
-    
-    top5_label = score_sorted[:5]
+    ##convert to dict with positional scores
+    final_res = {}
+    for i in score_sorted:
+        score = 400
+        final_res[i[0]] = score
+        score -=1
+        
     if outputs:
         return top5_label, returned_features
-    return top5_label
+        
+    return final_res
+    #return top5_label
