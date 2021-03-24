@@ -135,7 +135,11 @@ def inference_recognizer(model,
 
     score_tuples = tuple(zip(label, scores))
     score_sorted = sorted(score_tuples, key=itemgetter(1), reverse=True)
-
+    
+    print('*' * 80)
+    print(score_sorted)
+    print('*' * 80)
+    
     top5_label = score_sorted[:5]
     if outputs:
         return top5_label, returned_features
